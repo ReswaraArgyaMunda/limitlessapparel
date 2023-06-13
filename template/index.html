@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LIMITLESS</title>
+    <style>
+      .mySlides {
+        display: none;
+      }
+
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 100%;
+        position: relative;
+        margin: auto;
+      }
+
+      /* Next & prev-slideious buttons */
+      .prev-slide,
+      .next-slide {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      /* Caption text */
+      .dot-containter {
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Position the "next button" to the right */
+      .next-slide {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev-slide:hover,
+      .next-slide:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Caption text */
+
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+
+      /* The dots/bullets/indicators */
+      .dot-containter .dot {
+        cursor: pointer;
+        height: 10px;
+        width: 10px;
+        margin: 0 2px;
+        background-color: #000000;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot-containter .dot:hover {
+        background-color: #ffffff;
+        border: 0.1px solid black;
+      }
+
+      /* Fading animation */
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+
+    <!-- Sytle Link -->
+    <link rel="stylesheet" href="../static/css/style.css" />
+
+    <!-- Font Awesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Scrollbar Settings -->
+    <style>
+      html::-webkit-scrollbar {
+        width: 1vw;
+      }
+
+      html::-webkit-scrollbar-thumb {
+        background: rgb(37, 37, 37);
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+
+    <header>
+      <div href="#" class="logo" data-aos="fade-down">
+        <img
+          src="../static/image/MainLogoLimitelss.png"
+          style="width: 7rem; margin-top: 0.5rem"
+          alt="logo"
+        />
+      </div>
+      <ul class="nav">
+        <li data-aos="fade-down" data-aos-delay="50">
+          <a class="nav-section" href="#home" onclick="toggleMenu();"> Home </a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="100">
+          <a class="nav-section" href="#about" onclick="toggleMenu();"> Man </a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="150">
+          <a class="nav-section" href="#system" onclick="toggleMenu();">
+            Woman
+          </a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="200">
+          <a class="nav-section" href="#service" onclick="toggleMenu();">
+            Kids
+          </a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="250">
+          <a class="nav-section" href="#member" onclick="toggleMenu();">
+            Sale
+          </a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="250">
+          <a class="nav-section" href="#member" onclick="toggleMenu();">
+            Sneakers</a
+          >
+        </li>
+        <li data-aos="fade-down" data-aos-delay="250">
+          <a id="search-item-button"
+            ><ion-icon class="nav-icon" name="search-outline"></ion-icon>
+          </a>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="250">
+          <ion-icon class="nav-icon" name="cart-outline"></ion-icon>
+        </li>
+        <li data-aos="fade-down" data-aos-delay="250">
+          <div class="search-item-form">
+            <input
+              class="search-item-input"
+              type="search"
+              placeholder="search..."
+              id="search-box"
+            />
+          </div>
+        </li>
+      </ul>
+    </header>
+
+    <!-- Navigation bar end -->
+
+    <section class="promo-slideshow">
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img
+            src="../static/image/celebrate-sports-plp-copy-id.jpg"
+            style="width: 100%"
+          />
+          <div class="dot-containter">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="../static/image/img_nature_wide.jpg" style="width: 100%" />
+          <div class="dot-containter">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="../static/image/img_nature_wide.jpg" style="width: 100%" />
+          <div class="dot-containter">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+
+        <a class="prev-slide" onclick="plusSlides(-1)">❮</a>
+        <a class="next-slide" onclick="plusSlides(1)">❯</a>
+      </div>
+      <br />
+    </section>
+
+    <!-- Landing Page Start -->
+    <div class="home-title">
+      <h1>
+        WE ARE TOGETHER
+        <i class="fa-solid fa-arrow-right">
+          <i class="fa-solid fa-arrow-up"></i
+        ></i>
+        <i class="fa-solid fa-arrow-down"></i>
+        <i class="fa-solid fa-arrow-left"></i>
+      </h1>
+      <p>Never Stop, Never Surrender</p>
+    </div>
+
+    <section class="home" id="home">
+      <!-- Hero Image-->
+      <div class="home-image"></div>
+
+      <!-- Hero Content -->
+      <div class="home-content">
+        <div class="home-motto">
+          <h3>
+            "Embrace the Infinite Possibilities of Limitless Fashion
+            Exploration"
+          </h3>
+          <a href="shopping-cart-referensi\index.html" class="btn-1">
+            Shop Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="home-title-2">
+      <h1>
+        THE HIGHEST LEVEL
+        <i class="fa-sharp fa-solid fa-chevron-up"></i>
+        <i class="fa-sharp fa-solid fa-chevron-up"></i>
+        <i class="fa-sharp fa-solid fa-chevron-up"></i>
+      </h1>
+      <p>To be on the top, on the highest.</p>
+    </div>
+
+    <section class="home" id="home">
+      <!-- Hero Image-->
+
+      <!-- Hero Content -->
+      <div class="home-content-2">
+        <div class="home-motto-2">
+          <h3>"Expressive Touches Representing a Fashionable Self-Identity"</h3>
+          <p>
+            Implies that the individual's personal style choices and fashion
+            preferences are reflective of their unique personality and fashion
+            sense. It suggests that through their fashion choices, they are able
+            to creatively express themselves and showcase their distinct
+            identity.
+          </p>
+          <a href="shopping-cart-referensi\index.html" class="btn-1">
+            SEE MORE
+          </a>
+        </div>
+      </div>
+      <div class="home-image-2"></div>
+    </section>
+
+    <!-- Landing Page end -->
+
+    <!-- About Section Start -->
+
+    <!-- System Section start -->
+
+    <!-- System Section end -->
+
+    <!-- Service Section start -->
+    <div class="product-title">
+      <h1>
+        <i class="fa-sharp fa-solid fa-chevron-right"></i>
+        <i class="fa-sharp fa-solid fa-chevron-right"></i>
+        <i class="fa-sharp fa-solid fa-chevron-right"></i>
+        RECOMMEDED FOR YOU <i class="fa-sharp fa-solid fa-chevron-left"></i>
+        <i class="fa-sharp fa-solid fa-chevron-left"></i>
+        <i class="fa-sharp fa-solid fa-chevron-left"></i>
+      </h1>
+      <p>Choose The Best of all</p>
+    </div>
+
+    <section class="service" id="service">
+      <div class="container">
+        <div class="menu">
+          <div class="row">
+            <div class="card">
+              <div class="boxcard">
+                <div class="imgBx">
+                  <img
+                    src="../static/image/h59969_2_apparel_photography_front20center20view_grey.png"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <p class="category">Jacket Pria</p>
+                  <label for="check" class="next">
+                    <a id="order"><h3>Tech graphic T-shirt</h3></a>
+                  </label>
+                  <p class="price">Rp. 1.000.000</p>
+                </div>
+                <input type="checkbox" id="check" />
+
+                <!-- Form service start -->
+
+                <div class="contentBx">
+                  <div class="content">
+                    <h2>Details</h2>
+                    <div class="col10">
+                      <h1>Customer :</h1>
+                      <input type="text" placeholder="Name" />
+                      <h1>Weight :</h1>
+                      <input type="text" placeholder="weight" />
+                    </div>
+
+                    <div class="col50">
+                      <div class="select">
+                        <select name="estimation" id="estimation">
+                          <option selected disabled>Estimation</option>
+                          <option value="super">12 Hours</option>
+                          <option value="rare">1 Day</option>
+                          <option value="common">2 Day</option>
+                          <option value="broke">1 Month</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col100">
+                      <div class="select">
+                        <select name="service" id="service-item">
+                          <option selected disabled>Service</option>
+                          <option value="laundry">Laundry</option>
+                          <option value="ironing">Ironing</option>
+                          <option value="doubleService">
+                            Laundry & Ironing
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="end">
+                      <label for="check">
+                        <a class="back" id="back"
+                          ><i class="fa-solid fa-arrow-left"> Back </i></a
+                        >
+                      </label>
+                      <label for="confirm">
+                        <button class="confirm" id="confirm">
+                          Confirm <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Form service end -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+              <div class="boxcard">
+                <div class="imgBx">
+                  <img
+                    src="../static/image/h59969_2_apparel_photography_front20center20view_grey.png"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <p class="category">Jacket Pria</p>
+                  <label for="check" class="next">
+                    <a id="order"><h3>Tech graphic T-shirt</h3></a>
+                  </label>
+                  <p class="price">Rp. 1.000.000</p>
+                </div>
+                <input type="checkbox" id="check" />
+
+                <!-- Form service start -->
+
+                <div class="contentBx">
+                  <div class="content">
+                    <h2>Details</h2>
+                    <div class="col10">
+                      <h1>Customer :</h1>
+                      <input type="text" placeholder="Name" />
+                      <h1>Weight :</h1>
+                      <input type="text" placeholder="weight" />
+                    </div>
+
+                    <div class="col50">
+                      <div class="select">
+                        <select name="estimation" id="estimation">
+                          <option selected disabled>Estimation</option>
+                          <option value="super">12 Hours</option>
+                          <option value="rare">1 Day</option>
+                          <option value="common">2 Day</option>
+                          <option value="broke">1 Month</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col100">
+                      <div class="select">
+                        <select name="service" id="service-item">
+                          <option selected disabled>Service</option>
+                          <option value="laundry">Laundry</option>
+                          <option value="ironing">Ironing</option>
+                          <option value="doubleService">
+                            Laundry & Ironing
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="end">
+                      <label for="check">
+                        <a class="back" id="back"
+                          ><i class="fa-solid fa-arrow-left"> Back </i></a
+                        >
+                      </label>
+                      <label for="confirm">
+                        <button class="confirm" id="confirm">
+                          Confirm <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Form service end -->
+              </div>
+            </div>
+          </div>
+          <!-- Service menu item end -->
+
+          <!-- Service menu end -->
+
+          <!-- Service menu item start -->
+
+          <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+              <div class="boxcard">
+                <div class="imgBx">
+                  <img
+                    src="../static/image/h59969_2_apparel_photography_front20center20view_grey.png"
+                    alt=""
+                  />
+                </div>
+                <div class="text">
+                  <p class="category">Jacket Pria</p>
+                  <label for="check" class="next">
+                    <a id="order"><h3>Tech graphic T-shirt</h3></a>
+                  </label>
+                  <p class="price">Rp. 1.000.000</p>
+                </div>
+                <input type="checkbox" id="check" />
+
+                <!-- Form service start -->
+
+                <div class="contentBx">
+                  <div class="content">
+                    <h2>Details</h2>
+                    <div class="col10">
+                      <h1>Customer :</h1>
+                      <input type="text" placeholder="Name" />
+                      <h1>Weight :</h1>
+                      <input type="text" placeholder="weight" />
+                    </div>
+
+                    <div class="col50">
+                      <div class="select">
+                        <select name="estimation" id="estimation">
+                          <option selected disabled>Estimation</option>
+                          <option value="super">12 Hours</option>
+                          <option value="rare">1 Day</option>
+                          <option value="common">2 Day</option>
+                          <option value="broke">1 Month</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col100">
+                      <div class="select">
+                        <select name="service" id="service-item">
+                          <option selected disabled>Service</option>
+                          <option value="laundry">Laundry</option>
+                          <option value="ironing">Ironing</option>
+                          <option value="doubleService">
+                            Laundry & Ironing
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="end">
+                      <label for="check">
+                        <a class="back" id="back"
+                          ><i class="fa-solid fa-arrow-left"> Back </i></a
+                        >
+                      </label>
+                      <label for="confirm">
+                        <button class="confirm" id="confirm">
+                          Confirm <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Form service end -->
+              </div>
+            </div>
+          </div>
+          <!-- Service menu item end -->
+
+          <!-- Service menu item start -->
+
+          <div class="row" data-aos="fade-up" data-aos-delay="300">
+            <div class="card">
+              <div class="boxcard">
+                <div class="imgBx">
+                  <img src="../static/image/kaos.jpg" alt="" />
+                </div>
+                <div class="text">
+                  <h3>Shoes</h3>
+                  <label for="check3" class="next">
+                    <a id="order"
+                      >Order <i class="fa-solid fa-arrow-right"></i
+                    ></a>
+                  </label>
+                </div>
+                <input type="checkbox" id="check3" />
+
+                <!-- Form service start -->
+
+                <div class="contentBx">
+                  <div class="content">
+                    <h2>Details</h2>
+                    <div class="col10">
+                      <h1>Customer :</h1>
+                      <input type="text" placeholder="Name" />
+                      <h1>Pcs :</h1>
+                      <input type="text" placeholder="weight" />
+                    </div>
+
+                    <div class="col50">
+                      <div class="select">
+                        <select name="estimation" id="estimation">
+                          <option selected disabled>Estimation</option>
+                          <option value="super">12 Hours</option>
+                          <option value="rare">1 Day</option>
+                          <option value="common">2 Day</option>
+                          <option value="broke">1 Month</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col100">
+                      <div class="select">
+                        <select name="service" id="service-item">
+                          <option selected disabled>Service</option>
+                          <option value="laundry">Laundry</option>
+                          <option value="ironing">Ironing</option>
+                          <option value="doubleService">
+                            Laundry & Ironing
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="end">
+                      <label for="check3">
+                        <a class="back" id="back"
+                          ><i class="fa-solid fa-arrow-left"> Back </i></a
+                        >
+                      </label>
+                      <label for="confirm3">
+                        <button class="confirm" id="confirm">
+                          Confirm <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Form service start -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Service menu item end -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Section end -->
+
+    <!-- OurMember Section start -->
+    <div class="home-title-3">
+      <h1>
+        FROM OUR COMMUNITY
+        <i class="fa-solid fa-hand-fist"></i>
+        <i class="fa-solid fa-hand-fist"></i>
+      </h1>
+      <p>Never Stop, Never Surrender</p>
+    </div>
+
+    <section class="home-3" id="home-3">
+      <!-- Hero Image-->
+      <div class="home-image-3"></div>
+
+      <!-- Hero Content -->
+      <div class="home-content-3">
+        <div class="home-motto-3"></div>
+      </div>
+    </section>
+    <!-- OurMember Section end -->
+
+    <!-- Contact Section start -->
+    <section class="type-product" id="member">
+      <div class="content">
+        <!-- Testi item start -->
+
+        <div class="box" data-aos="fade-up" data-aos-delay="100">
+          <div class="imgBx">
+            <p>jello</p>
+            <img src="../static/image/michael.jpeg" alt="" />
+          </div>
+          <div class="text">
+            <p>Nim : 210211060018</p>
+            <h3>MICHAEL N. DAMO</h3>
+          </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="200">
+          <div class="imgBx">
+            <img src="../static/image/pascal.jpg" alt="" />
+          </div>
+          <div class="text">
+            <p>Nim : 210211060244</p>
+            <h3>PASCAL Z. MALIANGKAY</h3>
+          </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+          <div class="imgBx">
+            <img src="../static/image/reswara.jpeg" alt="" />
+          </div>
+          <div class="text">
+            <p>Nim : 210211060106</p>
+            <h3>RESWARA A. MUNDA</h3>
+          </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="400">
+          <div class="imgBx">
+            <img src="../static/image/rizka.jpeg" alt="" />
+          </div>
+          <div class="text">
+            <p>Nim : 210211060306</p>
+            <h3>RIZKA M. C. MOKODOMPIT</h3>
+          </div>
+        </div>
+
+        <!-- Testi item end -->
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="box">
+          <div class="icon-container" data-aos="fade-up">
+            <div class="icons" data-aos="fade-up" data-aos-delay="100">
+              <span>address :</span>
+              <p>Manado, Sulawesi Utara</p>
+            </div>
+            <div class="icons" data-aos="fade-up" data-aos-delay="200">
+              <span> email :</span>
+              <p>pascalmaliangkay026@student.unsrat.ac.id</p>
+            </div>
+            <div class="icons" data-aos="fade-up" data-aos-delay="300">
+              <span><i class="fa-location"></i></span>
+              <p>0895806286322</p>
+            </div>
+            <div class="icons" data-aos="fade-up" data-aos-delay="300">
+              <span>Phone :</span>
+              <p>0895806286322</p>
+            </div>
+            <div class="icons" data-aos="fade-up" data-aos-delay="300">
+              <span>Phone :</span>
+              <p>0895806286322</p>
+            </div>
+            <div class="icons" data-aos="fade-up" data-aos-delay="300">
+              <span>Phone :</span>
+              <p>0895806286322</p>
+            </div>
+          </div>
+        </div>
+        <p>hellow rodl</p>
+      </div>
+    </section>
+    <!-- Contact Section end -->
+
+    <!-- Copyright -->
+    <!-- JS Link -->
+    <script src="../static/js/script.js"></script>
+
+    <!-- AOS JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+    </script>
+
+    <script>
+      AOS.init({
+        duration: 600,
+      });
+    </script>
+
+    <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+  </body>
+</html>
